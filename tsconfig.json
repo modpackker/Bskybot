@@ -1,0 +1,16 @@
+{
+	"include": ["./src/**/*.ts"],
+	"compilerOptions": {
+		"skipLibCheck": true,
+		/* env */
+		"module": "nodenext",
+		"moduleResolution": "nodenext",
+		/* linter */
+		"noImplicitAny": true,
+		/* type checking */
+		"strict": true,
+		/* compiler */
+		"target": "ESNext",
+		"outDir": "./dist"
+	}
+}

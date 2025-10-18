@@ -1,0 +1,32 @@
+name: Bot post
+
+on:
+	schedule:
+		- '0 15 * * 3'
+	workflow_dispatch:
+
+jobs:
+	post:
+		runs-on: ubuntu-latest
+
+		steps:
+			- name: Checkout
+				uses: actions/checkout@v3
+
+			- name: Setup Node
+				uses: actions/setup-node@v3
+				with:
+					node-version: 22
+					cache: 'pnpm'
+
+			- name: Install dependencies
+				run: pnpm install
+
+			- name: Build
+				run: pnpm run build
+
+			- name: Run post.js
+				run: pnpm run bot:post
+				env:
+					BLUESKY_IDENTIFIER: '${{ secrets.BLUESKY_IDENTIFIER }}'
+					BLEUSKY_PASSWORD: '${{ secrets.BLEUSKY_PASSWORD }}'
