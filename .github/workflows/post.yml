@@ -28,4 +28,4 @@ jobs:
         run: npm run endpoint:post
         env:
           BLUESKY_IDENTIFIER: "${{ secrets.BLUESKY_IDENTIFIER }}"
-          BLEUSKY_PASSWORD: "${{ secrets.BLEUSKY_PASSWORD }}"
+          BLUESKY_PASSWORD: "${{ secrets.BLUESKY_PASSWORD }}"
