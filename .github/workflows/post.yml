@@ -1,4 +1,4 @@
-name: Bot post
+name: Endpoint post
 
 on:
   schedule:
@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Run post.js
-        run: npm run bot:post
+        run: npm run endpoint:post
         env:
           BLUESKY_IDENTIFIER: "${{ secrets.BLUESKY_IDENTIFIER }}"
           BLEUSKY_PASSWORD: "${{ secrets.BLEUSKY_PASSWORD }}"

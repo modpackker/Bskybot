@@ -7,7 +7,7 @@
 	"scripts": {
 		"dev": "tsc --watch",
 		"build": "tsc",
-		"bot:post": "node ./dist/index.js"
+		"endpoint:post": "node ./dist/index.js"
 	},
 	"devDependencies": {
 		"@types/node": "^24.8.1",
