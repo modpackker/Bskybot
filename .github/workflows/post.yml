@@ -2,8 +2,8 @@ name: Bot post
 
 on:
   schedule:
-    - cron: '0 15 * * 3'
-  workflow_dispatch: 
+    - cron: "0 14 * * 1,4"
+  workflow_dispatch:
 
 jobs:
   post:
@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '22'
+          node-version: "22"
 
       - name: Install dependencies
         run: npm install
@@ -27,5 +27,5 @@ jobs:
       - name: Run post.js
         run: npm run bot:post
         env:
-          BLUESKY_IDENTIFIER: '${{ secrets.BLUESKY_IDENTIFIER }}'
-          BLEUSKY_PASSWORD: '${{ secrets.BLEUSKY_PASSWORD }}'
+          BLUESKY_IDENTIFIER: "${{ secrets.BLUESKY_IDENTIFIER }}"
+          BLEUSKY_PASSWORD: "${{ secrets.BLEUSKY_PASSWORD }}"
