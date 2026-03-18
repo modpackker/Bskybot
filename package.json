@@ -10,11 +10,11 @@
 		"endpoint:post": "node ./dist/endpoints/post.js"
 	},
 	"devDependencies": {
-		"@types/node": "^24.8.1",
+		"@types/node": "^25.5.0",
 		"typescript": "^5.9.3"
 	},
 	"dependencies": {
-		"@atproto/api": "^0.17.3",
-		"dotenv": "^17.2.3"
+		"@atproto/api": "^0.19.3",
+		"dotenv": "^17.3.1"
 	}
 }
