@@ -1,7 +1,6 @@
+import { bskyClient } from '../data/bluesky.js';
 import type { Post } from '../lib/bluesky.js';
-
-import client from '../data/bluesky.js';
-import { getProject } from '../data/modrinth.js';
+import { getProject } from '../lib/modrinth.js';
 
 const POST = async () => {
 	const project = await getProject();
@@ -21,9 +20,9 @@ const POST = async () => {
 		},
 	};
 
-	await client.login();
-	await client.post(p);
-	await client.logout();
+	await bskyClient.login();
+	await bskyClient.post(p);
+	await bskyClient.logout();
 };
 
 await POST();

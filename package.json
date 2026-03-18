@@ -9,12 +9,12 @@
 		"build": "tsc",
 		"endpoint:post": "node ./dist/endpoints/post.js"
 	},
-	"devDependencies": {
-		"@types/node": "^25.5.0",
-		"typescript": "^5.9.3"
-	},
 	"dependencies": {
 		"@atproto/api": "^0.19.3",
 		"dotenv": "^17.3.1"
+	},
+	"devDependencies": {
+		"@types/node": "^25.5.0",
+		"typescript": "^5.9.3"
 	}
 }

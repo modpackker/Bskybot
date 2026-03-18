@@ -1,28 +1,29 @@
 import { AtpAgent, RichText } from '@atproto/api';
 
-export type Post =
-	| {
-			type: 'text';
-			body: string;
-	  }
-	| {
-			type: 'external';
-			body: string;
-			external: {
-				title: string;
-				description: string;
-				url: string;
-				thumb: URL['href'];
-			};
-	  };
+import { assertUnreachable } from '../utils/assert.js';
+
+/* prettier-ignore */
+export type Post = {
+	type: 'text';
+	body: string;
+} | {
+	type: 'external';
+	body: string;
+	external: {
+		title: string;
+		description: string;
+		url: string;
+		thumb: URL['href'];
+	};
+};
 
 export class BlueskyClient {
-	service = 'https://bsky.social';
+	readonly service = 'https://bsky.social';
 
-	identifier: string;
-	password: string;
+	readonly identifier: string;
+	private readonly password: string;
 
-	agent: AtpAgent;
+	readonly agent: AtpAgent;
 
 	constructor({ identifier, password }: { identifier: string; password: string }) {
 		this.identifier = identifier;
@@ -33,40 +34,41 @@ export class BlueskyClient {
 		});
 	}
 
-	async login() {
+	async login(): Promise<void> {
 		await this.agent.login({
 			identifier: this.identifier,
 			password: this.password,
 		});
 	}
 
-	async logout() {
+	async logout(): Promise<void> {
 		await this.agent.logout();
 	}
 
-	async post(p: Post) {
+	async post(p: Post): Promise<void> {
 		const rt = new RichText({
 			text: p.body,
 		});
 		await rt.detectFacets(this.agent);
 
 		switch (p.type) {
-			case 'text':
+			case 'text': {
 				await this.agent.post({
 					text: rt.text,
-					facets: rt.facets,
+					...(rt.facets!.length > 0 && { facets: rt.facets }),
 					createdAt: new Date().toISOString(),
 				});
 
 				break;
-			case 'external':
+			}
+			case 'external': {
 				const { data: thumb } = await this.agent.uploadBlob(
-					new Uint8Array(await (await (await fetch(p.external.thumb)).blob()).arrayBuffer())
+					new Uint8Array(await (await (await fetch(p.external.thumb)).blob()).arrayBuffer()),
 				);
 
 				await this.agent.post({
 					text: rt.text,
-					facets: rt.facets,
+					...(rt.facets!.length > 0 && { facets: rt.facets }),
 					embed: {
 						$type: 'app.bsky.embed.external',
 						external: {
@@ -80,6 +82,10 @@ export class BlueskyClient {
 				});
 
 				break;
+			}
+			default: {
+				assertUnreachable(p);
+			}
 		}
 	}
 }

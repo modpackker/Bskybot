@@ -1,4 +1,4 @@
-import { tryCatch } from '../lib/trycatch.js';
+import { tryCatch } from '../utils/trycatch.js';
 
 export type RawProjectResult = {
 	slug: string;
@@ -35,7 +35,7 @@ export const getProject = async (): Promise<Project> => {
 		throw new Error("Can't connect to Modrinth");
 	}
 
-	const p = data.hits[0];
+	const p = data.hits[0]!;
 
 	return {
 		slug: p.slug,
