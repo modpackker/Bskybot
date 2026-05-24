@@ -6,8 +6,7 @@
 		"endpoint:post": "node ./dist/endpoints/post.js"
 	},
 	"dependencies": {
-		"@atproto/api": "^0.20.5",
-		"dotenv": "^17.4.2"
+		"@atproto/api": "^0.20.5"
 	},
 	"devDependencies": {
 		"@types/node": "^25.9.1",

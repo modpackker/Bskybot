@@ -11,9 +11,6 @@ importers:
       '@atproto/api':
         specifier: ^0.20.5
         version: 0.20.5
-      dotenv:
-        specifier: ^17.4.2
-        version: 17.4.2
     devDependencies:
       '@types/node':
         specifier: ^25.9.1
@@ -57,10 +54,6 @@ packages:
 
   await-lock@3.0.0:
     resolution: {integrity: sha512-eO6fLiSnrJrMdjWMNK8zbVRXPs2TKJg78iKZd9wDpN3na5tcoV6EoeiOlMgk2QaAQ1gIrK1YuMsJHXWqz89tSA==}
-
-  dotenv@17.4.2:
-    resolution: {integrity: sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw==}
-    engines: {node: '>=12'}
 
   iso-datestring-validator@2.2.2:
     resolution: {integrity: sha512-yLEMkBbLZTlVQqOnQ4FiMujR6T4DEcCb1xizmvXS+OxuhwcbtynoosRzdMA69zZCShCNAbi+gJ71FxZBBXx1SA==}
@@ -146,8 +139,6 @@ snapshots:
       undici-types: 7.24.6
 
   await-lock@3.0.0: {}
-
-  dotenv@17.4.2: {}
 
   iso-datestring-validator@2.2.2: {}
 
