@@ -1,6 +1,5 @@
 import { AtpAgent, RichText } from '@atproto/api';
-
-import { assertUnreachable } from '../utils/assert.js';
+import { assertUnreachable } from 'tsfix';
 
 /* prettier-ignore */
 export type Post = {

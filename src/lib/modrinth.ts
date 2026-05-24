@@ -1,4 +1,4 @@
-import { tryCatch } from '../utils/trycatch.js';
+import { tryCatch } from 'tsfix';
 
 export type RawProjectResult = {
 	slug: string;
@@ -27,9 +27,9 @@ export type Project = {
 const endpoint = 'https://api.modrinth.com/v3/search?index=updated&limit=1';
 
 export const getProject = async (): Promise<Project> => {
-	const { data, error } = await tryCatch(() =>
-		fetch(endpoint).then((res) => res.json() as unknown as RawSearch)
-	);
+	const { data, error } = await tryCatch(async () => {
+		return await fetch(endpoint).then((res) => res.json() as unknown as RawSearch);
+	});
 
 	if (error || !data) {
 		throw new Error("Can't connect to Modrinth");

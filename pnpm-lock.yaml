@@ -15,6 +15,15 @@ importers:
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
+      tsfix:
+        specifier: workspace:*
+        version: link:modules/Tsfix
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+
+  modules/Tsfix:
+    devDependencies:
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
