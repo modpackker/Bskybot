@@ -1,4 +1,4 @@
-import { tryCatch } from 'tsfix';
+import { tryCatch } from '@t1xx1/tsfix';
 
 export type RawProjectResult = {
 	slug: string;

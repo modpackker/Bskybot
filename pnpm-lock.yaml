@@ -12,18 +12,12 @@ importers:
         specifier: ^0.20.5
         version: 0.20.5
     devDependencies:
+      '@t1xx1/tsfix':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@types/node':
         specifier: ^25.9.1
         version: 25.9.1
-      tsfix:
-        specifier: workspace:*
-        version: link:modules/Tsfix
-      typescript:
-        specifier: ^6.0.3
-        version: 6.0.3
-
-  modules/Tsfix:
-    devDependencies:
       typescript:
         specifier: ^6.0.3
         version: 6.0.3
@@ -57,6 +51,10 @@ packages:
   '@atproto/xrpc@0.8.0':
     resolution: {integrity: sha512-NJy02bIKrWlE2NQkRV1kT0Cj0ixbuxlF/MejBdo4cPWAa9v3oZexvAcjjb0zaOYeABkaU14iyIhvn2G4e/oLpw==}
     engines: {node: '>=22'}
+
+  '@t1xx1/tsfix@1.0.0':
+    resolution: {integrity: sha512-TUhsFsJdGmb9fLKnzuNxJxrAP5Ds8X+RcEtqi3PhyQgWcSIvtbH8Jg8wHCPDFjANm1t2qkx8tsGzKZ1QWAf2Ug==}
+    engines: {node: '>=24'}
 
   '@types/node@25.9.1':
     resolution: {integrity: sha512-xfrlY7UD5rMJk3ZVJP8BNzS28J36YJg+xp+LPXV1TdWxr8uMH5A860QNxYDGQe/ylDSgjxE52Q9VnO7p75tJxg==}
@@ -142,6 +140,8 @@ snapshots:
     dependencies:
       '@atproto/lexicon': 0.7.1
       zod: 3.25.76
+
+  '@t1xx1/tsfix@1.0.0': {}
 
   '@types/node@25.9.1':
     dependencies:

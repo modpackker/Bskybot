@@ -9,8 +9,8 @@
 		"@atproto/api": "^0.20.5"
 	},
 	"devDependencies": {
+		"@t1xx1/tsfix": "^1.0.0",
 		"@types/node": "^25.9.1",
-		"tsfix": "workspace:*",
 		"typescript": "^6.0.3"
 	},
 	"engines": {
