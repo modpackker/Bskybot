@@ -1,8 +1,8 @@
-name: Endpoint post
+name: Post endpoint
 
 on:
   schedule:
-    - cron: "0 14 * * 1,4"
+    - cron: '0 14 * * 1,4'
   workflow_dispatch:
 
 jobs:
@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Git checkout
         uses: actions/checkout@v3
 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: "24"
+          node-version: '24'
 
       - name: Install dependencies
         run: npm install
@@ -24,8 +24,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Run post.js
+      - name: Run post endpoint
         run: npm run endpoint:post
         env:
-          BLUESKY_IDENTIFIER: "${{ secrets.BLUESKY_IDENTIFIER }}"
-          BLUESKY_PASSWORD: "${{ secrets.BLUESKY_PASSWORD }}"
+          BLUESKY_IDENTIFIER: '${{ secrets.BLUESKY_IDENTIFIER }}'
+          BLUESKY_PASSWORD: '${{ secrets.BLUESKY_PASSWORD }}'

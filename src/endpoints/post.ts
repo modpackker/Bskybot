@@ -1,8 +1,14 @@
-import { bskyClient } from '../data/bluesky.js';
-import type { Post } from '../lib/bluesky.js';
+import { env } from 'node:process';
+
+import { BlueskyClient, type Post } from '../lib/bluesky.js';
 import { getProject } from '../lib/modrinth.js';
 
 const POST = async () => {
+	const blueskyClient = new BlueskyClient({
+		identifier: env['BLUESKY_IDENTIFIER']!,
+		password: env['BLUESKY_PASSWORD']!,
+	});
+
 	const project = await getProject();
 
 	const p: Post = {
@@ -20,9 +26,9 @@ const POST = async () => {
 		},
 	};
 
-	await bskyClient.login();
-	await bskyClient.post(p);
-	await bskyClient.logout();
+	await blueskyClient.login();
+	await blueskyClient.post(p);
+	await blueskyClient.logout();
 };
 
 await POST();
