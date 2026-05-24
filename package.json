@@ -1,10 +1,7 @@
 {
 	"type": "module",
-	"engines": {
-		"node": ">=22"
-	},
 	"scripts": {
-		"dev": "tsc --watch",
+		"dev": "tsc -w",
 		"build": "tsc",
 		"endpoint:post": "node ./dist/endpoints/post.js"
 	},
@@ -15,6 +12,9 @@
 	"devDependencies": {
 		"@types/node": "^25.5.0",
 		"typescript": "^5.9.3"
+	},
+	"engines": {
+		"node": ">=24"
 	},
 	"packageManager": "pnpm@11.2.2"
 }
